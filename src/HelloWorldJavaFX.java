@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -18,14 +19,20 @@ public class HelloWorldJavaFX extends Application {
     public void start(Stage palco){
        //Personagem 
      
-       Rectangle ceu = new Rectangle(900, 450);
-       Rectangle mar = new Rectangle(900, 450);
-       Circle sol = new Circle(90);
+       Rectangle ceu = new Rectangle(900, 450, Color.DARKRED);
+       Rectangle mar = new Rectangle(900, 450, Color.BLUE);
+       Circle sol = new Circle(90, Color.YELLOW);
+       
+       //Posicionamento
+       
+       ceu.setTranslateY(-200);
+       mar.setTranslateY(200);
+       sol.setTranslateY(50);
        
        //Historia
       
        StackPane historia = new StackPane(); 
-       historia.getChildren().addAll(ceu, mar, sol);
+       historia.getChildren().addAll(ceu, sol, mar);
        
        //Cena
       
@@ -34,6 +41,7 @@ public class HelloWorldJavaFX extends Application {
        //Palco
       
        palco.setScene(cena);
+       palco.setTitle("Patamares");
        palco.show();
        
        
